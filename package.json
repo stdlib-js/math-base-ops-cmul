@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-ops-cmul",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Multiply two complex numbers.",
   "license": "Apache-2.0",
   "author": {
