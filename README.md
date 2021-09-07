@@ -117,6 +117,24 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- /.examples -->
 
+<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+
+<section class="related">
+
+* * *
+
+## See Also
+
+-   [`@stdlib/math/base/ops/cadd`][@stdlib/math/base/ops/cadd]: add two complex numbers.
+-   [`@stdlib/math/base/ops/cdiv`][@stdlib/math/base/ops/cdiv]: divide two complex numbers.
+-   [`@stdlib/math/base/ops/csub`][@stdlib/math/base/ops/csub]: subtract two complex numbers.
+
+</section>
+
+<!-- /.related -->
+
+<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
 
 <section class="main-repo" >
 
@@ -171,6 +189,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/math-base-ops-cmul/main/LICENSE
+
+<!-- <related-links> -->
+
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
+
+[@stdlib/math/base/ops/cdiv]: https://github.com/stdlib-js/math-base-ops-cdiv
+
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
+
+<!-- </related-links> -->
 
 </section>
 
