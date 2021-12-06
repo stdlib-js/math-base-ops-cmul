@@ -1,7 +1,7 @@
 {
   "name": "@stdlib/math-base-ops-cmul",
   "version": "0.0.6",
-  "description": "Multiply two complex numbers.",
+  "description": "Multiply two double-precision complex floating-point numbers.",
   "license": "Apache-2.0",
   "author": {
     "name": "The Stdlib Authors",
@@ -37,18 +37,17 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
-    "@stdlib/types": "^0.0.x"
-  },
-  "devDependencies": {
-    "@stdlib/array-float64": "^0.0.x",
-    "@stdlib/assert-is-array": "^0.0.x",
-    "@stdlib/bench": "^0.0.x",
     "@stdlib/complex-float64": "^0.0.x",
     "@stdlib/complex-imag": "^0.0.x",
     "@stdlib/complex-real": "^0.0.x",
+    "@stdlib/types": "^0.0.x",
+    "@stdlib/utils-library-manifest": "^0.0.x"
+  },
+  "devDependencies": {
+    "@stdlib/bench": "^0.0.x",
     "@stdlib/math-base-assert-is-nan": "^0.0.x",
-    "@stdlib/math-base-special-round": "^0.0.x",
-    "@stdlib/random-base-randu": "^0.0.x",
+    "@stdlib/random-base-discrete-uniform": "^0.0.x",
+    "@stdlib/random-base-uniform": "^0.0.x",
     "tape": "git+https://github.com/kgryte/tape.git#fix/globby",
     "istanbul": "^0.4.1",
     "tap-spec": "5.x.x"
