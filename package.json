@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-ops-cmul",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "Multiply two double-precision complex floating-point numbers.",
   "license": "Apache-2.0",
   "author": {
