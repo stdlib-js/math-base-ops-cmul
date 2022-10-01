@@ -30,30 +30,38 @@ limitations under the License.
 
 <!-- /.intro -->
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/math-base-ops-cmul
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
+To use in Observable,
+
 ```javascript
-var cmul = require( '@stdlib/math-base-ops-cmul' );
+cmul = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@umd/browser.js' )
+```
+
+To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
+
+```javascript
+var cmul = require( 'path/to/vendor/umd/math-base-ops-cmul/index.js' )
+```
+
+To include the bundle in a webpage,
+
+```html
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@umd/browser.js"></script>
+```
+
+If no recognized module system is present, access bundle contents via the global scope:
+
+```html
+<script type="text/javascript">
+(function () {
+    window.cmul;
+})();
+</script>
 ```
 
 #### cmul( z1, z2 )
@@ -88,9 +96,14 @@ var im = imag( v );
 
 <!-- eslint no-undef: "error" -->
 
-```javascript
-var Complex128 = require( '@stdlib/complex-float64' );
-var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+```html
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
+<script type="text/javascript">
+(function () {.factory;
 var cmul = require( '@stdlib/math-base-ops-cmul' );
 
 var rand;
@@ -106,6 +119,11 @@ for ( i = 0; i < 100; i++ ) {
     z3 = cmul( z1, z2 );
     console.log( '(%s) * (%s) = %s', z1.toString(), z2.toString(), z3.toString() );
 }
+
+})();
+</script>
+</body>
+</html>
 ```
 
 </section>
@@ -114,97 +132,7 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/math/base/ops/cmul.h"
-```
-
-#### stdlib_base_cmul( z1, z2 )
-
-Multiplies two double-precision complex floating-point numbers.
-
-```c
-#include <complex.h>
-
-double complex z1 = 5.0 + 3.0*I;
-double complex z2 = -2.0 + 1.0*I;
-
-double complex out = stdlib_base_cmul( z1, z2 );
-// returns -13.0-1.0*I
-```
-
-The function accepts the following arguments:
-
--   **z1**: `[in] double complex` input value.
--   **z2**: `[in] double complex` input value.
-
-```c
-double complex stdlib_base_cmul( const double complex z1, const double complex z2 );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/math/base/ops/cmul.h"
-#include <stdio.h>
-#include <complex.h>
-
-int main() {
-    double complex x[] = { 3.14+1.5*I, -3.14-1.5*I, 0.0+0.0*I, 0.0/0.0+0.0/0.0*I };
-
-    double complex v;
-    double complex y;
-    int i;
-    for ( i = 0; i < 4; i++ ) {
-        v = x[ i ];
-        y = stdlib_base_cmul( v, v );
-        printf( "z = %lf + %lfi\ncmul(z, z) = %lf + %lfi\n", creal( v ), cimag( v ), creal( y ), cimag( y ) );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
