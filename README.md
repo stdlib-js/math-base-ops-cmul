@@ -192,7 +192,7 @@ stdlib_complex128_t stdlib_base_cmul( const stdlib_complex128_t z1, const stdlib
 #include "stdlib/complex/reim.h"
 #include <stdio.h>
 
-int main() {
+int main( void ) {
     const stdlib_complex128_t x[] = {
         stdlib_complex128( 3.14, 1.5 ),
         stdlib_complex128( -3.14, 1.5 ),
@@ -286,7 +286,7 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
