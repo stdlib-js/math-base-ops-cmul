@@ -48,7 +48,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@esm/index.mjs';
+import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@v0.1.0-esm/index.mjs';
 ```
 
 #### cmul( z1, z2 )
@@ -91,7 +91,7 @@ var im = imag( v );
 
 import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
 var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
-import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@esm/index.mjs';
+import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@v0.1.0-esm/index.mjs';
 
 var rand;
 var z1;
