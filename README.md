@@ -41,14 +41,30 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-ops-cmul
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@deno/mod.js';
+var cmul = require( '@stdlib/math-base-ops-cmul' );
 ```
 
 #### cmul( z1, z2 )
@@ -56,9 +72,9 @@ import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@deno/
 Multiplies two double-precision complex floating-point numbers.
 
 ```javascript
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@deno/mod.js';
-import real from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-real@deno/mod.js';
-import imag from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-imag@deno/mod.js';
+var Complex128 = require( '@stdlib/complex-float64' );
+var real = require( '@stdlib/complex-real' );
+var imag = require( '@stdlib/complex-imag' );
 
 var z1 = new Complex128( 5.0, 3.0 );
 var z2 = new Complex128( -2.0, 1.0 );
@@ -84,9 +100,9 @@ var im = imag( v );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@deno/mod.js';
-var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
-import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@deno/mod.js';
+var Complex128 = require( '@stdlib/complex-float64' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
+var cmul = require( '@stdlib/math-base-ops-cmul' );
 
 var rand;
 var z1;
@@ -109,11 +125,128 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/ops/cmul.h"
+```
+
+#### stdlib_base_cmul( z1, z2 )
+
+Multiplies two double-precision complex floating-point numbers.
+
+```c
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/real.h"
+#include "stdlib/complex/imag.h"
+
+stdlib_complex128_t z1 = stdlib_complex128( 5.0, 3.0 );
+stdlib_complex128_t z2 = stdlib_complex128( -2.0, 1.0 );
+
+stdlib_complex128_t out = stdlib_base_cmul( z1, z2 );
+
+double re = stdlib_real( out );
+// returns -13.0
+
+double im = stdlib_imag( out );
+// returns -1.0
+```
+
+The function accepts the following arguments:
+
+-   **z1**: `[in] stdlib_complex128_t` input value.
+-   **z2**: `[in] stdlib_complex128_t` input value.
+
+```c
+stdlib_complex128_t stdlib_base_cmul( const stdlib_complex128_t z1, const stdlib_complex128_t z2 );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/ops/cmul.h"
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/reim.h"
+#include <stdio.h>
+
+int main( void ) {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 3.14, 1.5 ),
+        stdlib_complex128( -3.14, 1.5 ),
+        stdlib_complex128( 0.0, -0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    stdlib_complex128_t v;
+    stdlib_complex128_t y;
+    double re;
+    double im;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        v = x[ i ];
+        stdlib_reim( v, &re, &im );
+        printf( "z = %lf + %lfi\n", re, im );
+
+        y = stdlib_base_cmul( v, v );
+        stdlib_reim( y, &re, &im );
+        printf( "cmul(z, z) = %lf + %lfi\n", re, im );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
 <section class="related">
+
+* * *
+
+## See Also
+
+-   <span class="package-name">[`@stdlib/math-base/ops/cadd`][@stdlib/math/base/ops/cadd]</span><span class="delimiter">: </span><span class="description">add two double-precision complex floating-point numbers.</span>
+-   <span class="package-name">[`@stdlib/math-base/ops/cdiv`][@stdlib/math/base/ops/cdiv]</span><span class="delimiter">: </span><span class="description">divide two complex numbers.</span>
+-   <span class="package-name">[`@stdlib/math-base/ops/csub`][@stdlib/math/base/ops/csub]</span><span class="delimiter">: </span><span class="description">subtract two double-precision complex floating-point numbers.</span>
 
 </section>
 
@@ -128,7 +261,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -187,6 +320,16 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 [branches-url]: https://github.com/stdlib-js/math-base-ops-cmul/blob/main/branches.md
 
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/math-base-ops-cmul/main/LICENSE
+
+<!-- <related-links> -->
+
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
+
+[@stdlib/math/base/ops/cdiv]: https://github.com/stdlib-js/math-base-ops-cdiv
+
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
+
+<!-- </related-links> -->
 
 </section>
 
