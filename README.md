@@ -48,6 +48,11 @@ limitations under the License.
 ## Usage
 
 ```javascript
+import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@esm/index.mjs';
+```
+The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/math-base-ops-cmul/tags). For example,
+
+```javascript
 import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@v0.2.1-esm/index.mjs';
 ```
 
@@ -91,7 +96,7 @@ var im = imag( v );
 
 import Complex128 from 'https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@esm/index.mjs';
 var discreteUniform = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform' ).factory;
-import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@v0.2.1-esm/index.mjs';
+import cmul from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@esm/index.mjs';
 
 var rand;
 var z1;
