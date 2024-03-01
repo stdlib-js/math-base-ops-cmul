@@ -41,43 +41,32 @@ limitations under the License.
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-ops-cmul
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-cmul = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@umd/browser.js' )
-```
-The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/math-base-ops-cmul/tags). For example,
-
-```javascript
-cmul = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@v0.2.1-umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var cmul = require( 'path/to/vendor/umd/math-base-ops-cmul/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-ops-cmul@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.cmul;
-})();
-</script>
+var cmul = require( '@stdlib/math-base-ops-cmul' );
 ```
 
 #### cmul( z1, z2 )
@@ -112,14 +101,9 @@ var im = imag( v );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/complex-float64@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {.factory;
+```javascript
+var Complex128 = require( '@stdlib/complex-float64' );
+var discreteUniform = require( '@stdlib/random-base-discrete-uniform' ).factory;
 var cmul = require( '@stdlib/math-base-ops-cmul' );
 
 var rand;
@@ -135,11 +119,6 @@ for ( i = 0; i < 100; i++ ) {
     z3 = cmul( z1, z2 );
     console.log( '(%s) * (%s) = %s', z1.toString(), z2.toString(), z3.toString() );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -148,7 +127,116 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/ops/cmul.h"
+```
+
+#### stdlib_base_cmul( z1, z2 )
+
+Multiplies two double-precision complex floating-point numbers.
+
+```c
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/real.h"
+#include "stdlib/complex/imag.h"
+
+stdlib_complex128_t z1 = stdlib_complex128( 5.0, 3.0 );
+stdlib_complex128_t z2 = stdlib_complex128( -2.0, 1.0 );
+
+stdlib_complex128_t out = stdlib_base_cmul( z1, z2 );
+
+double re = stdlib_real( out );
+// returns -13.0
+
+double im = stdlib_imag( out );
+// returns -1.0
+```
+
+The function accepts the following arguments:
+
+-   **z1**: `[in] stdlib_complex128_t` input value.
+-   **z2**: `[in] stdlib_complex128_t` input value.
+
+```c
+stdlib_complex128_t stdlib_base_cmul( const stdlib_complex128_t z1, const stdlib_complex128_t z2 );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/ops/cmul.h"
+#include "stdlib/complex/float64.h"
+#include "stdlib/complex/reim.h"
+#include <stdio.h>
+
+int main( void ) {
+    const stdlib_complex128_t x[] = {
+        stdlib_complex128( 3.14, 1.5 ),
+        stdlib_complex128( -3.14, 1.5 ),
+        stdlib_complex128( 0.0, -0.0 ),
+        stdlib_complex128( 0.0/0.0, 0.0/0.0 )
+    };
+
+    stdlib_complex128_t v;
+    stdlib_complex128_t y;
+    double re;
+    double im;
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        v = x[ i ];
+        stdlib_reim( v, &re, &im );
+        printf( "z = %lf + %lfi\n", re, im );
+
+        y = stdlib_base_cmul( v, v );
+        stdlib_reim( y, &re, &im );
+        printf( "cmul(z, z) = %lf + %lfi\n", re, im );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -205,8 +293,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/math-base-ops-cmul.svg
 [npm-url]: https://npmjs.org/package/@stdlib/math-base-ops-cmul
 
-[test-image]: https://github.com/stdlib-js/math-base-ops-cmul/actions/workflows/test.yml/badge.svg?branch=v0.2.1
-[test-url]: https://github.com/stdlib-js/math-base-ops-cmul/actions/workflows/test.yml?query=branch:v0.2.1
+[test-image]: https://github.com/stdlib-js/math-base-ops-cmul/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/math-base-ops-cmul/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/math-base-ops-cmul/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/math-base-ops-cmul?branch=main
@@ -240,11 +328,11 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd/tree/umd
+[@stdlib/math/base/ops/cadd]: https://github.com/stdlib-js/math-base-ops-cadd
 
-[@stdlib/math/base/ops/cdiv]: https://github.com/stdlib-js/math-base-ops-cdiv/tree/umd
+[@stdlib/math/base/ops/cdiv]: https://github.com/stdlib-js/math-base-ops-cdiv
 
-[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub/tree/umd
+[@stdlib/math/base/ops/csub]: https://github.com/stdlib-js/math-base-ops-csub
 
 <!-- </related-links> -->
 
