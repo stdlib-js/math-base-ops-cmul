@@ -1,7 +1,7 @@
-/**
+/*
 * @license Apache-2.0
 *
-* Copyright (c) 2018 The Stdlib Authors.
+* Copyright (c) 2019 The Stdlib Authors.
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -16,18 +16,23 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { Complex128 } from '@stdlib/types/complex';
 
 /**
-* Multiply two double-precision complex floating-point numbers.
+* Multiplies two double-precision complex floating-point numbers.
 *
-* @module @stdlib/math-base-ops-cmul
+* @param z1 - complex number
+* @param z2 - complex number
+* @returns result
 *
 * @example
 * var Complex128 = require( '@stdlib/complex-float64-ctor' );
 * var real = require( '@stdlib/complex-real' );
 * var imag = require( '@stdlib/complex-imag' );
-* var cmul = require( '@stdlib/math-base-ops-cmul' );
 *
 * var z1 = new Complex128( 5.0, 3.0 );
 * // returns <Complex128>
@@ -44,12 +49,9 @@
 * var im = imag( out );
 * // returns -1.0
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function cmul( z1: Complex128, z2: Complex128 ): Complex128;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = cmul;
